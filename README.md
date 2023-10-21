@@ -37,7 +37,9 @@ $ADC\\\_STEPS$ and $V_{ref}$ are configured automatically with the MspTandV libr
 
 `V_DIV_SCALE_FACTOR` needs to be calculated specific to your setup::
 
-![image](https://upload.wikimedia.org/wikipedia/commons/3/31/Impedance_voltage_divider.svg)
+![image](https://upload.wikimedia.org/wikipedia/commons/3/31/Impedance_voltage_divider.svg "Image by Wikipedia user Velociostrich CC BY-SA 3.0")
+
+[//]: # (CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0/)
 
 $V_{in}$ is the voltage you are trying to measure (i.e., $V_{Calculated}$)  
 $V_{out}$ is the analog input pin.  
