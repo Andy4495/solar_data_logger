@@ -48,8 +48,5 @@ jobs:
       platform-version: latest
       libraries: |
         - source-path: ./
-        # Add library dependencies here: 
-        # - source-url: https://github.com/<owner-name>/<repo-name>.git
-        # - name: name-of-library-registered-with-arduino-library-manager
-        #   version: v1.5
+        - source-url: https://github.com/Andy4495/MspTandV.git
 

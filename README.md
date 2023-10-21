@@ -1,6 +1,6 @@
 # Solar Data Logger
 
-[![Check Markdown Links](https://github.com/Andy4495/Solar-Data-Logger/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/Solar-Data-Logger/actions/workflows/CheckMarkdownLinks.yml)
+[![Check Markdown Links](https://github.com/Andy4495/solar_data_logger/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/solar_data_logger/actions/workflows/CheckMarkdownLinks.yml)
 
 This sketch takes voltage measurements at regular intervals and stores the data in non-volatile internal [FRAM][4].
 
