@@ -1,7 +1,7 @@
 # Solar Data Logger
 
 [![Arduino Compile Sketches](https://github.com/Andy4495/solar_data_logger/actions/workflows/arduino-compile-sketches.yml/badge.svg)](https://github.com/Andy4495/solar_data_logger/actions/workflows/arduino-compile-sketches.yml)
-[![Check Markdown Links](https://github.com/Andy4495/solar_data_logger/actions/workflows/CheckMarkdownLinks.yml/badge.svg)](https://github.com/Andy4495/solar_data_logger/actions/workflows/CheckMarkdownLinks.yml)
+[![Check Markdown Links](https://github.com/Andy4495/solar_data_logger/actions/workflows/check-links.yml/badge.svg)](https://github.com/Andy4495/solar_data_logger/actions/workflows/check-links.yml)
 
 This sketch takes voltage measurements at regular intervals and stores the data in non-volatile internal [FRAM][4].
 
