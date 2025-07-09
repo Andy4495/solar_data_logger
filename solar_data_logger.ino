@@ -43,6 +43,7 @@
 */
 /* Version History
    10/19/2023   Andy4495    Original
+   09-JUL-2025  Andy4495    Add print calculated voltage when dumping FRAM
 
 */
 
@@ -106,14 +107,17 @@ void setup() {
   }
 
   pinMode(PUSH1, INPUT_PULLUP);
+  // Dump the FRAM to Serial if PUSH1 is pressed at bootup
   if (digitalRead(PUSH1) == LOW) {
     for (int i = 0; i < NUM_SAMPLES; i++) {
-      Serial.print("i, vcc[i], adc[i]: ");
+      Serial.print("i, vcc[i], adc[i], V_calc: ");
       Serial.print(i);
       Serial.print(", ");
       Serial.print(vcc[i]);
       Serial.print(", ");
       Serial.print(adc[i]);
+      Serial.print(", ");
+      Serial.print(adc[i] / (float)ADC_STEPS * (float)VCC_REF1_DV / V_DIV_SCALE_FACTOR / 10.0, 6);
       Serial.println("");
     }
   }

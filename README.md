@@ -55,7 +55,7 @@ For example, if $Z_1$ = 9980 Ohms and $Z_2$ = 4690 Ohms, then `V_DIV_SCALE_FACTO
 
 ## Operation
 
-Holding down PUSH1 at reboot prints the stored data over the serial port.
+Holding down PUSH1 at reboot prints to Serial the Vcc and calibrated ADC values stored in FRAM, along with the calculated voltage for each reading.
 
 Holding down PUSH2 at reboot clears the data store in FRAM. The LED is briefly flashed when FRAM is cleared.
 
@@ -63,13 +63,18 @@ If a reboot is detected (e.g., due to loss of power from the solar panel), then 
 
 The LED is flashed every few seconds (per `#define LED_TIME`). Since this takes a little extra power, it may be useful to remove the LED jumper after confirming that the program is running so that the measurements aren't affected by the LED current draw.
 
+To connect a serial monitor to the logger without impacting the data collection:
+
+- Configure the Jumper Isolation Block (J101) with jumpers "GND" and "TXD>>" connected and the other jumpers ("5V", "3V3", "RXD<<", "SBWTDIO", "SBWTCK") disconnected
+- Connect a PC via USB to the Debug Probe section
+
 ## External Libraries
 
 - [MspTandV][1]
 
 ## Implementation Details
 
-By default, the FRAM is configured as read-only in the FR2433 variant, so there is a compiler directive to unlock it for write access. This is not needed for other supported FR variants. See [here][47], [here][2], and [here][3].
+By default, the FRAM is configured as read-only in the FR2433 variant, so there is a compiler directive to unlock it for write access. This is not needed for other supported FR variants. For more details, refer to the [issue in GitHub][47], the [MSPFRxx User Guide][2], and the Software section of the Embedded Computing FR2433 [article][3].
 
 ## References
 
