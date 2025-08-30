@@ -23,7 +23,7 @@ The sketch has several `#define` statements that can be updated to fit the proje
 | `LED_TIME`           | 3000UL        | Time in ms between LED toggling  on and off. |
 | `SAMPLE_COUNT`       | 1536          | Number of samples stored in FRAM. Each sample takes 4 bytes. |
 | `REBOOT_DETECTED`    | 5555          | Value to store when board is rebooted without clearing previously stored data. |
-| `V_DIV_SCALE_FACTOR` | 0.3197        | Scaling factor from the voltage divider. See below. |
+| `V_DIV_SCALE_FACTOR` | 0.24605       | Scaling factor from the voltage divider. See below. |
 | `RAW_ADC_PIN`        | 5             | Analog pin used to measure the raw voltage (typically through a voltage divider). |
 | `LED_PWM_LEVEL`      | 32            | Controls LED brightness (0 to 255). Higher is brighter and uses more current. |
 
