@@ -35,23 +35,23 @@ $$
 
 $ADC\\\_STEPS$ and $V_{ref}$ are configured automatically with the MspTandV library.
 
-`V_DIV_SCALE_FACTOR` needs to be calculated specific to your setup::
+`V_DIV_SCALE_FACTOR` needs to be calculated specific to your setup:
 
-![image](https://upload.wikimedia.org/wikipedia/commons/3/31/Impedance_voltage_divider.svg "Image by Wikipedia user Velociostrich CC BY-SA 3.0")
+![image](https://upload.wikimedia.org/wikipedia/commons/2/21/Resistive_divider2.svg "Image by Wikipedia user Krishnavedala CC0")
 
-[//]: # (CC BY-SA 3.0: https://creativecommons.org/licenses/by-sa/3.0/)
+[//]: # (CC0: https://creativecommons.org/publicdomain/zero/1.0/deed.en)
 
 $V_{in}$ is the voltage you are trying to measure (i.e., $V_{Calculated}$)  
 $V_{out}$ is the analog input pin.  
-$Z_1$ and $Z_2$ should be measured with an accurate DMM.
+$R_1$ and $R_2$ should be measured with an accurate DMM.
 
 Then calculate and use the result to update `#define V_DIV_SCALE_FACTOR`:
 
 $$
-{V\\\_DIV\\\_SCALE\\\_FACTOR} = { Z_2 \over ( Z_1 + Z_2 ) }
+{V\\\_DIV\\\_SCALE\\\_FACTOR} = { R_2 \over ( R_1 + R_2 ) }
 $$
 
-For example, if $Z_1$ = 9980 Ohms and $Z_2$ = 4690 Ohms, then `V_DIV_SCALE_FACTOR` should be set to 0.3197.
+For example, if $R_1$ = 11920 Ohms and $R_2$ = 3890 Ohms, then `V_DIV_SCALE_FACTOR` should be set to 0.24605.
 
 ## Operation
 

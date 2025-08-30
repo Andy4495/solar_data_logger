@@ -44,19 +44,20 @@
 /* Version History
    10/19/2023   Andy4495    Original
    09-JUL-2025  Andy4495    Add print calculated voltage when dumping FRAM
+   30-AUG-2025  Andy4495    Update scale factor to allow readings up to about 6 V
 
 */
 
 #include "MspTandV.h"
 
-#define LOOP_TIME 60000UL         // Milliseconds between voltage readings
-#define LED_TIME 3000UL           // Time between LED toggling
-#define NUM_SAMPLES (1024 + 512)  // 1536 total readings at 60 second intervals stores 25h36m of data (even more since no power at night)
+#define LOOP_TIME 60000UL           // Milliseconds between voltage readings
+#define LED_TIME 3000UL             // Time between LED toggling
+#define NUM_SAMPLES (1024 + 512)    // 1536 total readings at 60 second intervals stores 25h36m of data (even more since no power at night)
 #define REBOOT_DETECTED 5555
-#define V_DIV_SCALE_FACTOR 0.3197  // We are going to use floating point math for this, since we have the space
-#define RAW_ADC_PIN 5                          // Analog pin used to measure the raw voltage (typically through a voltage divider)
-#define LED_PWM_LEVEL 32          // Controls LED brightness, higher is brighter (and uses more current)
-#if defined(__MSP430FR6989__) // The FR6989 does not define LED2, so use GREEN_LED instead
+#define V_DIV_SCALE_FACTOR 0.24605  // We are going to use floating point math for this, since we have the space
+#define RAW_ADC_PIN 5               // Analog pin used to measure the raw voltage (typically through a voltage divider)
+#define LED_PWM_LEVEL 32            // Controls LED brightness, higher is brighter (and uses more current)
+#if defined(__MSP430FR6989__)       // The FR6989 does not define LED2, so use GREEN_LED instead
 #define THE_LED GREEN_LED
 #else
 #define THE_LED LED2
