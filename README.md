@@ -30,7 +30,7 @@ The sketch has several `#define` statements that can be updated to fit the proje
 The `V_DIV_SCALE_FACTOR` is used to calculate an actual voltage value based on the calibrated ADC reading using the chip's internal voltage reference:
 
 $$
-V_{Calculated} =  ADC_{Calibrated} \left(V_{ref} \over ADC\\\_STEPS \right) \div {V\\\_DIV\\\_SCALE\\\_FACTOR}
+V_{Calculated} =  ADC_{Calibrated} \times \left(V_{ref} \over ADC\\\_STEPS \right) \div {V\\\_DIV\\\_SCALE\\\_FACTOR}
 $$
 
 $ADC\\\_STEPS$ and $V_{ref}$ are configured automatically with the MspTandV library.
