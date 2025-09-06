@@ -110,8 +110,8 @@ void setup() {
   pinMode(PUSH1, INPUT_PULLUP);
   // Dump the FRAM to Serial if PUSH1 is pressed at bootup
   if (digitalRead(PUSH1) == LOW) {
-    for (int i = 0; i < NUM_SAMPLES; i++) {
-      Serial.print("i, vcc[i], adc[i], V_calc: ");
+  Serial.print("i, vcc[i], adc[i], V_calc: ");
+  for (int i = 0; i < NUM_SAMPLES; i++) {
       Serial.print(i);
       Serial.print(", ");
       Serial.print(vcc[i]);

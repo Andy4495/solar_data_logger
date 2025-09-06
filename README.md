@@ -7,7 +7,7 @@ This sketch takes voltage measurements at regular intervals and stores the data 
 
 The sketch was designed specically for use with an [MSP430FR2433 LaunchPad][5] powered with a solar panel, but could be adapted to other boards (particularly other "FR" variants of the MSP430) and other power sources or data collection needs.
 
-The MspTandV [library][1] is used to get calibrated measurements of $V_{cc}$ and an analog input pin. I use the analog input to measure the raw solar cell voltage output through a resistor divider.
+The MspTandV [library][1] is used to get calibrated measurements of $V_{cc}$ and an analog input pin using the MSP430's internal voltage reference. I use the analog input to measure the raw solar cell voltage output through a resistor divider.
 
 By storing the data in FRAM, the sketch can be run without being connected to a computer and the data can be retrieved at a later time.
 
@@ -27,7 +27,7 @@ The sketch has several `#define` statements that can be updated to fit the proje
 | `RAW_ADC_PIN`        | 5             | Analog pin used to measure the raw voltage (typically through a voltage divider). |
 | `LED_PWM_LEVEL`      | 32            | Controls LED brightness (0 to 255). Higher is brighter and uses more current. |
 
-The `V_DIV_SCALE_FACTOR` is used to calculate an actual voltage value based on the calibrated ADC reading using the chip's internal voltage reference:
+The `V_DIV_SCALE_FACTOR` is used to calculate an actual voltage when the calibrated ADC reading is measured using a voltage divider:
 
 $$
 V_{Calculated} =  ADC_{Calibrated} \times \left(V_{ref} \over ADC\\\_STEPS \right) \div {V\\\_DIV\\\_SCALE\\\_FACTOR}
@@ -59,13 +59,13 @@ Holding down PUSH1 at reboot prints to Serial the Vcc and calibrated ADC values 
 
 Holding down PUSH2 at reboot clears the data store in FRAM. The LED is briefly flashed when FRAM is cleared.
 
-If a reboot is detected (e.g., due to loss of power from the solar panel), then 5555 (i.e., whatever is defined as REBOOT_DETECTED) is stored in the next data cell.
+If a reboot is detected (e.g., due to loss of power from the solar panel), then the `REBOOT_DETECTED` value is stored in the next data cell.
 
-The LED is flashed every few seconds (per `#define LED_TIME`). Since this takes a little extra power, it may be useful to remove the LED jumper after confirming that the program is running so that the measurements aren't affected by the LED current draw.
+The LED is flashed every few seconds (per `LED_TIME` value). Since this takes a little extra power, it may be useful to remove the LED jumper after confirming that the program is running so that the measurements aren't affected by the LED current draw.
 
 To connect a serial monitor to the logger without impacting the data collection:
 
-- Configure the Jumper Isolation Block (J101) with jumpers "GND" and "TXD>>" connected and the other jumpers ("5V", "3V3", "RXD<<", "SBWTDIO", "SBWTCK") disconnected
+- Configure the Jumper Isolation Block (J101) with jumpers `GND` and `TXD>>` connected and the other jumpers (`5V`, `3V3`, `RXD<<`, `SBWTDIO`, `SBWTCK`) disconnected
 - Connect a PC via USB to the Debug Probe section
 
 ## External Libraries
