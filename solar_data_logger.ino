@@ -48,7 +48,7 @@
 
 */
 
-#include "MspTandV.h"
+#include "MspTandV.h"               // https://github.com/Andy4495/MspTandV
 
 #define LOOP_TIME 60000UL           // Milliseconds between voltage readings
 #define LED_TIME 3000UL             // Time between LED toggling
